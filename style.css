@@ -10,6 +10,14 @@
     background-color: black;
 }
 
+#titleList {
+    color: gray;
+    font-size: xx-large;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
 .tarjetas-container, .book-details {
     display: flex;
     flex-wrap: wrap;
@@ -44,4 +52,23 @@
     display: block;
     margin: 0 auto;
     border-radius: 5px;
+}
+
+.buttonAmazon {
+    color: white;
+    background-color: orange;
+}
+
+.buttonBack {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.titleBook {
+    font-family: sans-serif;
+    color:#666;
 }
