@@ -2,6 +2,9 @@
 
 Este proyecto es una aplicación que muestra una lista de libros populares, obtenidos de una API externa. Los usuarios pueden ver detalles específicos de cada libro y acceder al enlace de compra en Amazon. Además, incluye un botón que permite regresar a la lista principal de libros.
 
+![NYT](https://github.com/user-attachments/assets/974297fb-6266-4fae-8f79-e9f92c37ba91)
+
+
 <u>Tabla de Contenidos</u>
 
 :books: Descripción
@@ -23,6 +26,9 @@ Este proyecto es una aplicación que muestra una lista de libros populares, obte
 ---
 Esta aplicación funciona mediante conexión a la API de libros del New York Times a través de peticiones asíncronas, nos muestra 59 listas con sus respectivos libros que podemos ojear e incluso ir de forma directa al enlace de Amazon para comprarlos.
 La aplicación está pensada para ser ejecutada tanto en móvil como en navegador web ya que es responsive, y tiene una interfaz intuitiva y fácil de usar.
+
+![image](https://github.com/user-attachments/assets/a4693847-4350-4051-b459-414014a8ff7e)
+
 
 **:hammer_and_wrench: Lenguajes y herramientas:**
 ---
