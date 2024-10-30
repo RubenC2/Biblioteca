@@ -1,14 +1,15 @@
 let apiKey = "ed123cIAvxUeGGS4wFQzqYJiUKzYupNG";
 
 document.addEventListener("DOMContentLoaded", function () {
-    
+
     getDataList();
 });
 
 async function getDataList() {
-    
+    const loader = document.getElementById("loader");
 
     try {
+        loader.style.display = "block";
         const response = await fetch('https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=ed123cIAvxUeGGS4wFQzqYJiUKzYupNG');
         const data = await response.json();
         const results = data.results.map(item => ({
@@ -18,7 +19,7 @@ async function getDataList() {
             dateUpdate: item.updated,
             link: item.list_name_encoded
         }));
-
+        loader.style.display = "none";
         const buttonBack = document.getElementById("buttonBack");
         const titleList = document.getElementById("titleList");
 
@@ -27,17 +28,20 @@ async function getDataList() {
             titleList.style.display = "none";
         }
 
+
         // Llamada a la funcion "pintarListas" y le paso los resultados
         pintarListas(results);
 
     } catch (error) {
         console.log(`ERROR: ${error.stack}`);
+        loader.style.display = "none";
     }
 }
 
 
 // Función para crear y pintar tarjetas en el DOM
 function pintarListas(listaData) {
+    const loader = document.getElementById("loader");
     const container = document.getElementById("tarjetas-container");
 
     // Limpia el contenedor 
@@ -85,9 +89,10 @@ function pintarListas(listaData) {
             container.innerHTML = '';
 
             try {
+                loader.style.display = "block";
                 const response = await fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${lista.link}.json?api-key=ed123cIAvxUeGGS4wFQzqYJiUKzYupNG`);
                 const data = await response.json();
-
+                loader.style.display = "none";
                 let boton = `<div> <button class="buttonBack" onclick="getDataList();"> < Back to Index</button> </div>`;
                 // Aquí creo HTML para los detalles de los libros 
                 let bookDetailsHTML = data.results.books.map(book => `
@@ -103,7 +108,7 @@ function pintarListas(listaData) {
                 buttonBack.innerHTML = boton;
 
                 let tituloLista = `${lista.name}`
-                let titleList= document.getElementById("titleList")
+                let titleList = document.getElementById("titleList")
                 titleList.innerHTML = tituloLista;
 
                 if (buttonBack && titleList) {
@@ -118,6 +123,7 @@ function pintarListas(listaData) {
 
             } catch (error) {
                 console.error("Error al obtener los detalles de la lista:", error);
+                loader.style.display = "none";
             }
         });
 
