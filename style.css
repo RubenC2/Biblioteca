@@ -1,0 +1,47 @@
+#pageTitle {
+    font-family: sans-serif;
+
+}
+
+#bestSellers {
+    width: 500px;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+.tarjetas-container, .book-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.tarjeta, .book-detail {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.tarjeta p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.img_width {
+    width: 65%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
