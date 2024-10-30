@@ -1,6 +1,6 @@
 # Biblioteca
 
-Este proyecto es una aplicación que muestra una lista de libros populares, obtenidos de una API externa. Los usuarios pueden ver detalles específicos de cada libro y acceder al enlace de compra en Amazon. Además, incluye un botón que permite regresar a la lista principal de libros.
+Este proyecto es una aplicación que muestra libros por categorías obtenidos de una API externa. Se pueden ver y navegar tanto las temáticas como los detalles específicos de cada libro y acceder al enlace de compra en Amazon.
 
 ![NYT](https://github.com/user-attachments/assets/974297fb-6266-4fae-8f79-e9f92c37ba91)
 
@@ -24,8 +24,7 @@ Este proyecto es una aplicación que muestra una lista de libros populares, obte
 ------------------------------------------------------------------------------------------------------------
 **Descripción**
 ---
-Esta aplicación funciona mediante conexión a la API de libros del New York Times a través de peticiones asíncronas, nos muestra 59 listas con sus respectivos libros que podemos ojear e incluso ir de forma directa al enlace de Amazon para comprarlos.
-La aplicación está pensada para ser ejecutada tanto en móvil como en navegador web ya que es responsive, y tiene una interfaz intuitiva y fácil de usar.
+Esta aplicación funciona mediante peticiones asíncronas a la API de libros de New York Times. Nos muestra 59 listas por temática con sus respectivos libros, de los que podemos leer más detalles e incluso ir de forma directa al enlace de Amazon para comprarlos. La aplicación tiene una interfaz intuitiva y fácil de usar y está pensada para ser ejecutada tanto en móvil como en navegador web ya que es responsive.
 
 ![image](https://github.com/user-attachments/assets/a4693847-4350-4051-b459-414014a8ff7e)
 
@@ -42,11 +41,11 @@ La aplicación está pensada para ser ejecutada tanto en móvil como en navegado
 
 **Características**
 ---
-- **Lista de libros**: Visualización de una lista de libros con título, posición en el ranking, imagen y descripción.
-- **API de Libros**: Los datos de los libros se obtienen de una API externa para garantizar contenido actualizado.
-- **Detalles del libro**: Información detallada sobre cada libro, incluyendo semanas que lleva en la lista y un enlace de compra a Amazon.
-- **Botón de regreso**: Un botón que permite volver a la lista principal desde la vista del detalle de los libros.
-- **Loader**: Además contiene un loader para indicar que el contenido se está cargando.
+- **Listas de libros**: Visualización de las diferentes listas de libros con nombre, algunos detalles y el enlace de acceso.
+- **API de Libros**: Los datos se obtienen de dos endpoints de la API de New York Times Books para garantizar contenido actualizado.
+- **Detalles de los libros**: Información detallada sobre cada libro, incluyendo semanas que lleva en la lista y un enlace de compra a Amazon.
+- **Botón de regreso**: Un botón que permite volver a la ventana principal desde la vista del detalle de los libros.
+- **Loader**: Contiene un loader para indicar que el contenido se está cargando.
 
 **Instalación**
 ---
@@ -64,7 +63,7 @@ Abre el archivo index.html en tu navegador para ejecutar la aplicación.
 **Uso**
 ---
 
-1. Al abrir la aplicación, se mostrará una lista de libros obtenida de la API.
+1. Al abrir la aplicación se mostrarán las lista de libros obtenida de la API.
 2. Haz clic en cualquier lista para ver los libros que contiene y sus detalles adicionales.
 3. Utiliza el botón "Back to Index" para regresar a la lista principal.
 4. Puedes utilizar el botón "Buy at amazon" para ir de forma directa al enlace de compra.
@@ -72,7 +71,7 @@ Abre el archivo index.html en tu navegador para ejecutar la aplicación.
 Además, en las siguientes versiones...
 
 <img src="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-plain-wordmark.svg" title="Firebase" alt="Firebase" width="40" height="40"/>&nbsp;
-Gracias a la autenticación en Firebase se podrán guardar los libros en favoritos.
+Gracias a la autenticación en Firebase se podrán guardar los libros en favoritos, entre otras funciones.
 
 **Contribuciones**
 ---
