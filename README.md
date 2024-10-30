@@ -46,6 +46,7 @@ La aplicación está pensada para ser ejecutada tanto en móvil como en navegado
 - **API de Libros**: Los datos de los libros se obtienen de una API externa para garantizar contenido actualizado.
 - **Detalles del libro**: Información detallada sobre cada libro, incluyendo semanas que lleva en la lista y un enlace de compra a Amazon.
 - **Botón de regreso**: Un botón que permite volver a la lista principal desde la vista del detalle de los libros.
+- **Loader**: Además contiene un loader para indicar que el contenido se está cargando.
 
 **Instalación**
 ---
