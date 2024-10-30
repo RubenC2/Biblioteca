@@ -1,5 +1,9 @@
 let apiKey = "ed123cIAvxUeGGS4wFQzqYJiUKzYupNG";
 
+document.addEventListener("DOMContentLoaded", function () {
+    
+    getDataList();
+});
 
 async function getDataList() {
     
@@ -15,8 +19,14 @@ async function getDataList() {
             link: item.list_name_encoded
         }));
 
-        // buttonBack.style.display = "none";
-        // titleList.style.display = "none";
+        const buttonBack = document.getElementById("buttonBack");
+        const titleList = document.getElementById("titleList");
+
+        if (buttonBack && titleList) {
+            buttonBack.style.display = "none";
+            titleList.style.display = "none";
+        }
+
         // Llamada a la funcion "pintarListas" y le paso los resultados
         pintarListas(results);
 
@@ -32,7 +42,6 @@ function pintarListas(listaData) {
 
     // Limpia el contenedor 
     container.innerHTML = '';
-    alert(container.innerHTML)
 
     listaData.forEach(lista => {
         // Crear el div de la tarjeta
@@ -97,6 +106,13 @@ function pintarListas(listaData) {
                 let titleList= document.getElementById("titleList")
                 titleList.innerHTML = tituloLista;
 
+                if (buttonBack && titleList) {
+                    buttonBack.style.display = "block";
+                    titleList.style.display = "block";
+                }
+
+
+
                 container.innerHTML = bookDetailsHTML; // Agrega el HTML de los libros al contenedor
 
 
@@ -110,8 +126,3 @@ function pintarListas(listaData) {
     });
 }
 
-// Llamar a la función para obtener y pintar las tarjetas
-getDataList();
-
-
-//buttonBack.style.display = "none";
