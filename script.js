@@ -96,7 +96,7 @@ function pintarListas(listaData) {
                         <img class="img_width" src="${book.book_image}" alt="${book.title}">
                         <p>Weeks on list: ${book.weeks_on_list}</p>
                         <p>${book.description}</p>
-                        <a class="buttonAmazon" href="${book.amazon_product_url}" target="_blank">BUY AT AMAZON</a>
+                        <a class="buttonAmazon" href="${book.amazon_product_url}" target="_blank">BUY AT AMAZON 🛒</a>
                     </div>
                 `)
                 let buttonBack = document.getElementById("buttonBack");
