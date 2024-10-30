@@ -2,6 +2,8 @@ let apiKey = "ed123cIAvxUeGGS4wFQzqYJiUKzYupNG";
 
 
 async function getDataList() {
+    
+
     try {
         const response = await fetch('https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=ed123cIAvxUeGGS4wFQzqYJiUKzYupNG');
         const data = await response.json();
@@ -13,8 +15,11 @@ async function getDataList() {
             link: item.list_name_encoded
         }));
 
-        // Llama a "pintarListas" y pásale los resultados procesados
+        // buttonBack.style.display = "none";
+        // titleList.style.display = "none";
+        // Llamada a la funcion "pintarListas" y le paso los resultados
         pintarListas(results);
+
     } catch (error) {
         console.log(`ERROR: ${error.stack}`);
     }
@@ -25,8 +30,9 @@ async function getDataList() {
 function pintarListas(listaData) {
     const container = document.getElementById("tarjetas-container");
 
-    // Limpia el contenedor para evitar duplicados en cada llamada
+    // Limpia el contenedor 
     container.innerHTML = '';
+    alert(container.innerHTML)
 
     listaData.forEach(lista => {
         // Crear el div de la tarjeta
@@ -56,18 +62,14 @@ function pintarListas(listaData) {
         // Crear y añadir el link para hacer fetch al hacer click
         const link = document.createElement("a");
         link.href = "#"; // Evitar comportamiento por defecto del link
-        link.textContent = "Ver lista";
+        link.textContent = "READ MORE!";
+
         // Contenedor para detalles de libros
         const bookDetailsContainer = document.createElement("div");
         bookDetailsContainer.classList.add("book-details");
         bookDetailsContainer.style.display = "none"; // Oculto inicialmente
 
-        // const tituloLista = document.createElement('h1');
-        // tituloLista.className = 'listTitle';
-        // tituloLista.innerHTML = lista.name; 
-
         tarjeta.appendChild(bookDetailsContainer);
-        //bookDetailsContainer.appendChild(tituloLista);
 
         link.addEventListener("click", async (event) => {
             event.preventDefault(); // Evita que el link recargue la página
@@ -77,17 +79,24 @@ function pintarListas(listaData) {
                 const response = await fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${lista.link}.json?api-key=ed123cIAvxUeGGS4wFQzqYJiUKzYupNG`);
                 const data = await response.json();
 
-                // Crea HTML para los detalles de los libros 
-                const bookDetailsHTML = data.results.books.map(book => `
+                let boton = `<div> <button class="buttonBack" onclick="getDataList();"> < Back to Index</button> </div>`;
+                // Aquí creo HTML para los detalles de los libros 
+                let bookDetailsHTML = data.results.books.map(book => `
                     <div class="book-detail">
+                        <h4 class="titleBook"># ${book.rank} ${book.title}</h4>
                         <img class="img_width" src="${book.book_image}" alt="${book.title}">
-                        <h4>${book.title}</h4>
-                        <p>Semanas en la lista: ${book.weeks_on_list}</p>
-                        <p>Descripción: ${book.description}</p>
-                        <p>Posición: ${book.rank}</p>
-                        <a href="${book.amazon_product_url}" target="_blank">Comprar en Amazon</a>
+                        <p>Weeks on list: ${book.weeks_on_list}</p>
+                        <p>${book.description}</p>
+                        <a class="buttonAmazon" href="${book.amazon_product_url}" target="_blank">BUY AT AMAZON</a>
                     </div>
-                `).join('');
+                `)
+                let buttonBack = document.getElementById("buttonBack");
+                buttonBack.innerHTML = boton;
+
+                let tituloLista = `${lista.name}`
+                let titleList= document.getElementById("titleList")
+                titleList.innerHTML = tituloLista;
+
                 container.innerHTML = bookDetailsHTML; // Agrega el HTML de los libros al contenedor
 
 
@@ -105,3 +114,4 @@ function pintarListas(listaData) {
 getDataList();
 
 
+//buttonBack.style.display = "none";
